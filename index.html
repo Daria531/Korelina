@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+     <style>
+        BODY { text-align: center; font-family: Verdana, sans-serif}
+        TABLE { border: 1px solid; border-collapse: collapse; display:inline-table }
+        TH { border: 1px solid; padding: 5px }
+        TD { border: 1px solid; padding: 5px }
+  </style>
+</head>
+<body>
+    <h1>Аналитика по зарплатам и городам для профессии {{ vacancy_name }}</h1>
+    <img src="{{ image_url }}">
+    <h2>{{ table_name_1 }}</h2>
+    <table >
+        <tr>
+            {% for field in field_statistic_year %}
+            <th style=" border: 1px solid">{{ field }}</th>
+            {% endfor %}
+        </tr>
+        {% for year in years %}
+        <tr>
+            <td style=" border: 1px solid">{{ year }}</td>
+            {% for dict in analytic_year %}
+                <td style=" border: 1px solid">{{ dict[year] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>{{ table2 }}</h2>
+    <div>
+    <table>
+        <tr>
+            {% for field in field1 %}
+            <th>{{ field }}</th>
+            {% endfor %}
+        </tr>
+        {% for key, value in analytic_city.items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            {% for field in field2 %}
+            <th>{{ field }}</th>
+            {% endfor %}
+        </tr>
+        {% for key, value in dict_city_part.items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</body>
+</html>

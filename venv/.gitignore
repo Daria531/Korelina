@@ -1,4 +1,8 @@
 # created by virtualenv automatically
-/.idea
-/venv
-C:\Users\RBT\Downloads/vacancies.csv
+venv/
+
+.idea/
+
+vacancies.csv
+
+vacancies_by_year.csv
