@@ -1,4 +1,4 @@
-import multiprocessing
+import multiprocessing_new
 import cProfile
 import os
 import pandas as pd
@@ -73,7 +73,7 @@ class Statistic:
         Собирает статистику по годам, с использованием мультипроцессорности
         """
         csv_file = [rf"Csvs\{file_name}" for file_name in os.listdir("Csvs")]
-        pool = multiprocessing.Pool(4)
+        pool = multiprocessing_new.Pool(4)
         res_list = pool.starmap(self.get_stat_by_year, [(file,) for file in csv_file])
         pool.close()
 
@@ -92,9 +92,9 @@ class Statistic:
         print(f'Доля вакансий по городам (в порядке убывания): {self.area_count_dict}')
 
 if __name__ == '__main__':
-    #file_path = "C:\\Users\\RBT\\PycharmProjects\\Korelina\\.idea\\Csv_files\\vacancies_by_year.csv"
+    file_path = "C:\\Users\\RBT\\PycharmProjects\\Korelina\\.idea\\Files\\vacancies_by_year.csv"
     prof = "Аналитик"
-    #parser_csv.parse_csv_by_year(file_path)
+    parser_csv.parse_csv_by_year(file_path)
     stat = Statistic(file_path, prof)
     stat.get_stat()
     stat.print_stat()

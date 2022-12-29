@@ -3,7 +3,7 @@ import pandas as pd
 pd.set_option("display.max_columns", False)
 pd.set_option("expand_frame_repr", False)
 
-def parse_csv_by_year(file="C:\\Users\\RBT\\PycharmProjects\\Korelina\\.idea\\Files\\vacancies_by_year.csv"):
+def parse_csv_by_year(file="C:\\Users\\RBT\\PycharmProjects\\Korelina\\.idea\\Csv_files\\vacancies_by_year.csv"):
     """
     Группирует и разделяет данные во входном файле по годам
     :param file: str Путь к файлу
@@ -19,4 +19,3 @@ def parse_csv_by_year(file="C:\\Users\\RBT\\PycharmProjects\\Korelina\\.idea\\Fi
               "area_name",
               "published_at"]].to_csv(rf"C:\Users\RBT\PycharmProjects\Korelina\.idea\Csvs\year_{year}.csv", index=False)
 #parse_csv_by_year()
-
